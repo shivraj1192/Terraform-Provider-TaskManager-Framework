@@ -14,6 +14,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
+	"github.com/shivraj1192/terraform-provider-taskmanager-framework/taskmanager/datasources"
 	"github.com/shivraj1192/terraform-provider-taskmanager-framework/taskmanager/resources"
 	"github.com/shivraj1192/terraform-provider-taskmanager-framework/taskmanager_client"
 )
@@ -107,7 +108,9 @@ func (rp *taskmanagerProvider) Configure(ctx context.Context, req provider.Confi
 }
 
 func (rp *taskmanagerProvider) DataSources(_ context.Context) []func() datasource.DataSource {
-	return []func() datasource.DataSource{}
+	return []func() datasource.DataSource{
+		datasources.NewDataSourceUser,
+	}
 }
 
 func (rp *taskmanagerProvider) Resources(_ context.Context) []func() resource.Resource {
