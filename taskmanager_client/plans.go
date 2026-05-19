@@ -7,6 +7,14 @@ type TaskmanagerPlan struct {
 	Token  types.String `tfsdk:"token"`
 }
 
+type DataSourceUserPlan struct {
+	ID    types.Int64  `tfsdk:"id"`
+	Uname types.String `tfsdk:"uname"`
+	Name  types.String `tfsdk:"name"`
+	Email types.String `tfsdk:"email"`
+	Role  types.String `tfsdk:"role"`
+}
+
 type ResourceUserPlan struct {
 	ID       types.Int64  `tfsdk:"id"`
 	Uname    types.String `tfsdk:"uname"`

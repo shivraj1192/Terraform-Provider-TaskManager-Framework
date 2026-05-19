@@ -19,3 +19,7 @@ resource "taskmanager_user" "user_new" {
   password = "AT - TASKMANAGER PASSWORD"
   role     = "Member"
 }
+
+data "taskmanager_user" "data_user" {
+    id = 12
+}
