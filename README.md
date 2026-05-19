@@ -322,14 +322,20 @@ terraform {
 }
 
 provider "taskmanager" {
-  base_url = "http://localhost:8080/"
-  token    = var.taskmanager_token
+  base_url = "http://localhost:8080"
+  token    = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3NzkxODEyODgsInVzZXJfaWQiOjE0fQ.WJrTc9gZsRcSYFMB__zPfQR7S1Gb54dVhpO6OV3H5N4"
 }
 
-variable "taskmanager_token" {
-  description = "JWT token for TaskManager-Go API"
-  type        = string
-  sensitive   = true
+resource "taskmanager_user" "user_new" {
+  uname    = "AT - TASKMANAGER UNAME"
+  name     = "AT - TASKMANAGER NAME"
+  email    = "AT.TASKMANAGER@gmail.com"
+  password = "AT - TASKMANAGER PASSWORD"
+  role     = "Member"
+}
+
+data "taskmanager_user" "data_user" {
+    id = 12
 }
 ```
 
